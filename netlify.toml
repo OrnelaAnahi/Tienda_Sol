@@ -1,0 +1,19 @@
+[build]
+  base = "packages/frontend"
+  
+  command = "npm run build"
+  
+  publish = "build"
+
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build.environment]
+  NODE_VERSION = "18"
+  
+[context.production.environment]
+  API_URL = "https://tienda-sol-backend-uesx.onrender.com/api"
+

@@ -1,0 +1,25 @@
+.add-to-cart-button {
+    width: 100%;
+    padding: 10px 14px;
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+    background-color: var(--color-hover);
+    transform: scale(1.02);
+}
+
+.add-to-cart-button.added {
+  background-color: #2ecc71;
+  cursor: default;
+}
+
+.add-to-cart-button.added:hover {
+    transform: none;
+}

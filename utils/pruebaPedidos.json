@@ -1,0 +1,106 @@
+{
+  "info": {
+    "name": "Mi API - Backend",
+    "description": "Colección para probar endpoints /api/productos y /api/pedidos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "productoId", "value": "" },
+    { "key": "pedidoId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Crear producto",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"vendedor\": \"60f7c2d5e1a3a2b1c3d4e5f6\",\n  \"titulo\": \"Camiseta deportiva\",\n  \"descripcion\": \"Camiseta técnica unisex\",\n  \"categoria\": [ { \"id\": \"ropa\", \"nombre\": \"Ropa\" } ],\n  \"stock\": 50,\n  \"precio\": 1999.99,\n  \"moneda\": \"PESO_ARS\",\n  \"activo\": true,\n  \"fotos\": [\"https://example.com/foto1.jpg\"]\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/api/productos", "host": ["{{baseUrl}}"], "path": ["api","productos"] }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar productos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "{{baseUrl}}/api/productos", "host": ["{{baseUrl}}"], "path": ["api","productos"] }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear pedido",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"comprador\": { \"id\": \"usuario123\", \"nombre\": \"María\" },\n  \"items\": [\n    {\n      \"producto\": {\n        \"vendedor\": \"60f7c2d5e1a3a2b1c3d4e5f6\",\n        \"titulo\": \"Camiseta deportiva\",\n        \"stock\": 50,\n        \"precio\": 1999.99,\n        \"moneda\": \"PESO_ARS\",\n        \"activo\": true\n      },\n      \"cantidad\": 2,\n      \"precioUnitario\": 1999.99\n    }\n  ],\n  \"moneda\": \"PESO_ARS\",\n  \"direccionEntrega\": { \"calle\": \"Av. Siempreviva\", \"numero\": \"742\", \"ciudad\": \"Springfield\" }\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/api/pedidos", "host": ["{{baseUrl}}"], "path": ["api","pedidos"] }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar pedidos (por usuario) -- GET /api/pedidos?usuarioId=...",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/pedidos?usuarioId=usuario123",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","pedidos"],
+          "query": [{ "key": "usuarioId", "value": "usuario123" }]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Modificar pedido (item) - PUT /api/pedidos/:id",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"itemId\": \"<ITEM_ID>\",\n  \"nuevaCantidad\": 1\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/pedidos/{{pedidoId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","pedidos","{{pedidoId}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Cancelar pedido - PATCH /api/pedidos/:id",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"motivo\": \"Cambio de planes\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/pedidos/{{pedidoId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api","pedidos","{{pedidoId}}"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+.product-detail-page {
+    background-color: var(--body-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-detail-container {
+    flex: 1;
+    max-width: 1000px;
+    margin: 32px auto;
+    background: var(--color-surface);
+    border-radius: 6px;
+    padding: 32px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-border);
+}
+
+.product-detail-image-container {
+    text-align: center;
+    margin-bottom: 24px;
+    background-color: transparent;
+}
+
+.product-detail-image {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    background-color: transparent;
+}
+
+.product-detail-image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.product-detail-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--body-text);
+    margin-bottom: 8px;
+}
+
+.product-detail-description {
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-size: 1rem;
+    margin-bottom: 16px;
+}
+
+.product-detail-categories {
+    color: var(--text-label);
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+}
+
+.product-detail-price .price-tag {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+.product-detail-stock {
+    color: var(--color-badge);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.btn {
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-hover);
+}
+
+.btn-outline-secondary {
+    background-color: var(--color-surface);
+    color: var(--body-text);
+    border: 1px solid var(--color-border);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--body-bg);
+}
+
+@media (max-width: 768px) {
+    .product-detail-container {
+        padding: 20px;
+    }
+
+    .product-detail-title {
+        font-size: 1.5rem;
+    }
+
+    .product-detail-image {
+        max-width: 280px;
+    }
+}

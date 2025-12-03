@@ -1,0 +1,112 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.header-left,
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.menu-btn,
+.cart-btn {
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    color: var(--body-text);
+    transition: background-color 0.2s ease, color 0.3s ease;
+    position: relative;
+}
+
+.menu-btn:hover,
+.cart-btn:hover {
+    background-color: var(--color-border);
+}
+
+.menu-btn:focus,
+.cart-btn:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.cart-btn {
+    position: relative;
+}
+
+.cart-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--color-error);
+    color: var(--color-surface);
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 18px;
+    text-align: center;
+}
+
+.header-center {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    position: relative;
+}
+
+.search-icon {
+    position: relative;
+    left: 2em;
+    color: var(--color-secondary);
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 450px;
+    padding: 8px 12px 8px 44px;
+    border-radius: 25px;
+    border: 1px solid var(--color-border);
+    background-color: var(--body-bg);
+    color: var(--body-text);
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.search-input::placeholder {
+    color: var(--color-secondary);
+}
+
+.search-input:focus {
+    border-color: var(--color-primary);
+    background-color: var(--color-surface);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 600px) {
+    .search-input {
+        max-width: 100%;
+    }
+
+    .menu-btn,
+    .cart-btn {
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,109 @@
+.product-filters {
+    background: var(--color-surface);
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.filters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--color-border);
+    transition: border-color 0.3s ease;
+}
+
+.filters-header h5 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--body-text);
+    transition: color 0.3s ease;
+}
+
+.filter-section {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--color-border);
+    transition: border-color 0.3s ease;
+}
+
+.filter-section:last-of-type {
+    border-bottom: none;
+}
+
+.filter-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--body-text);
+    transition: color 0.3s ease;
+}
+
+.price-inputs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.price-inputs input {
+    flex: 1;
+    background-color: var(--body-bg);
+    color: var(--body-text);
+    border: 1px solid var(--color-border);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.price-inputs input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.price-separator {
+    color: var(--color-secondary);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.filter-actions {
+    margin-top: 24px;
+}
+
+.form-control-sm {
+    font-size: 14px;
+    padding: 8px 12px;
+    background-color: var(--body-bg);
+    color: var(--body-text);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.form-control-sm:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.2rem rgba(109, 148, 197, 0.15);
+}
+
+.form-control-sm::placeholder {
+    color: var(--color-secondary);
+}
+
+.btn-link {
+    color: var(--color-primary);
+    transition: color 0.3s ease;
+}
+
+.btn-link:hover {
+    color: var(--color-hover);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product-filters {
+        margin-bottom: 20px;
+    }
+}

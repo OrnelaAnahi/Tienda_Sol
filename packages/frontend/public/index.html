@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" id="favicon" href="images/logo_claro.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1a73e8" />
+    <meta
+      name="description"
+      content="Tienda Sol - Plataforma de e-commerce"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/images/logo_claro.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <title>Tienda Sol</title>
+
+    <script>
+      // Cambiar favicon según preferencias de tema del sistema
+      (function() {
+        const favicon = document.getElementById('favicon');
+        const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        function updateFavicon(isDark) {
+          favicon.href = isDark ? 'images/logo_oscuro.png' : 'images/logo_claro.png';
+        }
+        
+        // Aplicar favicon correcto al cargar
+        updateFavicon(darkModeQuery.matches);
+        
+        // Escuchar cambios de tema en tiempo real
+        darkModeQuery.addEventListener('change', (e) => updateFavicon(e.matches));
+      })();
+    </script>
+  </head>
+  <body>
+    <noscript>Necesitas habilitar JavaScript para ejecutar esta aplicación.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

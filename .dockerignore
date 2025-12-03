@@ -1,0 +1,31 @@
+# Environment files (NO copiar al contenedor)
+.env
+.env.*
+packages/backend/.env
+packages/frontend/.env
+
+# Dependencies (se instalan en el build)
+node_modules
+**/node_modules
+package-lock.json
+
+# Frontend (no necesario en backend image)
+packages/frontend
+
+# Tests y desarrollo
+**/*.test.js
+**/tests
+**/coverage
+*.md
+.vscode
+.github
+
+# Backend específico (no productivo)
+packages/backend/docs
+packages/backend/scripts
+packages/backend/appTest.js
+packages/backend/semilla.js
+
+# Git
+.git
+.gitignore

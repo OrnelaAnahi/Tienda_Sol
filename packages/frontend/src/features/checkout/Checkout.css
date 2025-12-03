@@ -1,0 +1,40 @@
+.empty-cart-section {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 2rem;
+    color: var(--body-text);
+    background-color: var(--body-bg);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.empty-cart-section h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--body-text);
+}
+
+.empty-cart-section p {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.empty-cart-section .btn {
+    margin-top: 1rem;
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.empty-cart-section .btn:hover {
+    background-color: var(--color-hover);
+}

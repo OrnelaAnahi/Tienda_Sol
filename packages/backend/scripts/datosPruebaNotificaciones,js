@@ -1,0 +1,53 @@
+import mongoose from "mongoose";
+import { NotificacionModel } from "../utils/Schemas/NotificacionSchema.js";
+
+// 🔧 Configurá tu conexión local
+const DB_URI = "mongodb://localhost:27017/Tienda_Sol";
+
+// 🧑‍💼 ID del usuario que pasaste
+const usuarioId = "68e852e25816c4293bf6a1aa";
+
+const notificacionesMock = [
+  {
+    usuarioDestino: usuarioId,
+    mensaje: "Tu pedido #101 fue confirmado con éxito ✅",
+    leida: false,
+  },
+  {
+    usuarioDestino: usuarioId,
+    mensaje: "Tu pedido #101 fue enviado 🚚",
+    leida: false,
+  },
+  {
+    usuarioDestino: usuarioId,
+    mensaje: "Tu pedido #100 fue cancelado ❌",
+    leida: true,
+    fechaLeida: new Date(),
+  },
+  {
+    usuarioDestino: usuarioId,
+    mensaje: "Nuevo mensaje del cliente sobre el pedido #102 📩",
+    leida: false,
+  },
+];
+
+async function main() {
+  try {
+    await mongoose.connect(DB_URI);
+    console.log("✅ Conectado a MongoDB");
+
+    // Limpia las notificaciones anteriores del usuario (opcional)
+    await NotificacionModel.deleteMany({ usuarioDestino: usuarioId });
+
+    // Inserta las notificaciones de prueba
+    const result = await NotificacionModel.insertMany(notificacionesMock);
+    console.log(`📬 ${result.length} notificaciones insertadas para el usuario ${usuarioId}`);
+
+    await mongoose.disconnect();
+    console.log("🔌 Desconectado de MongoDB");
+  } catch (error) {
+    console.error("❌ Error al insertar notificaciones:", error);
+  }
+}
+
+main();

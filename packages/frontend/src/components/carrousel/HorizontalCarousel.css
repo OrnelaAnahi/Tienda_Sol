@@ -1,0 +1,96 @@
+.horizontal-carousel {
+    position: relative;
+    width: 100%;
+    padding: 0 50px;
+}
+
+.horizontal-carousel-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 10px 0;
+}
+
+.horizontal-carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.horizontal-carousel-item {
+    flex: 0 0 auto;
+    width: 280px;
+}
+
+.horizontal-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    color: var(--body-text);
+}
+
+.horizontal-carousel-btn:hover {
+    background-color: var(--color-hover);
+    color: var(--color-surface);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.horizontal-carousel-btn-left {
+    left: 0;
+}
+
+.horizontal-carousel-btn-right {
+    right: 0;
+}
+
+.horizontal-carousel-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    color: var(--color-secondary);
+    transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .horizontal-carousel {
+        padding: 0 40px;
+    }
+
+    .horizontal-carousel-item {
+        width: 220px;
+    }
+
+    .horizontal-carousel-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .horizontal-carousel {
+        padding: 0 30px;
+    }
+
+    .horizontal-carousel-item {
+        width: 180px;
+    }
+
+    .horizontal-carousel-btn {
+        width: 36px;
+        height: 36px;
+    }
+}

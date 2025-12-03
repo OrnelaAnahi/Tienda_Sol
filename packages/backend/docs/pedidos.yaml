@@ -1,0 +1,120 @@
+paths:
+  /api/pedidos:
+    post:
+      summary: Crear un pedido
+      description: Crea un pedido con sus ítems, valida stock, moneda y dirección de entrega.
+      tags:
+        - Pedidos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - compradorId
+                - items
+                - moneda
+                - direccionEntrega
+              properties:
+                compradorId:
+                  type: string
+                  description: ID del comprador
+                  example: "68e852e25816c4293bf6a1ad"
+                items:
+                  type: array
+                  description: Lista de productos incluidos en el pedido
+                  items:
+                    type: object
+                    required:
+                      - productoId
+                      - cantidad
+                      - precioUnitario
+                    properties:
+                      productoId:
+                        type: string
+                        description: ID del producto
+                        example: "68e852e25816c4293bf6a1b0"
+                      cantidad:
+                        type: integer
+                        description: Cantidad de unidades del producto
+                        example: 3
+                      precioUnitario:
+                        type: number
+                        description: Precio unitario del producto
+                        example: 200
+                moneda:
+                  type: string
+                  description: Moneda utilizada para el pedido
+                  example: "DOLAR_USA"
+                direccionEntrega:
+                  type: object
+                  description: Dirección de entrega del pedido
+                  required:
+                    - calle
+                    - altura
+                    - codigoPostal
+                    - ciudad
+                    - provincia
+                    - pais
+                    - lat
+                    - lon
+                  properties:
+                    calle:
+                      type: string
+                      example: "Calle Falsa"
+                    altura:
+                      type: string
+                      example: "123"
+                    piso:
+                      type: string
+                      example: "1"
+                    departamento:
+                      type: string
+                      example: "A"
+                    codigoPostal:
+                      type: string
+                      example: "12345"
+                    ciudad:
+                      type: string
+                      example: "Springfield"
+                    provincia:
+                      type: string
+                      example: "Illinois"
+                    pais:
+                      type: string
+                      example: "USA"
+                    lat:
+                      type: string
+                      example: "-34.6037"
+                    lon:
+                      type: string
+                      example: "-58.3816"
+      responses:
+        201:
+          description: Pedido creado correctamente
+          content:
+            application/json:
+              example:
+                _id: "68e852e25816c4293bf6a1ff"
+                estado: "PENDIENTE"
+                total: 600
+                moneda: "DOLAR_USA"
+        400:
+          description: Datos inválidos o estructura incorrecta
+          content:
+            application/json:
+              example:
+                error: "Comprador no encontrado"
+        409:
+          description: Conflicto de concurrencia o falta de stock
+          content:
+            application/json:
+              example:
+                error: "No hay suficiente stock para el producto 68e852e25816c4293bf6a1b0"
+        500:
+          description: Error interno del servidor
+          content:
+            application/json:
+              example:
+                error: "Error al crear el pedido"

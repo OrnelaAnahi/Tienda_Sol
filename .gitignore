@@ -1,0 +1,9 @@
+node_modules/
+/packages/**/node_modules/
+/packages/**/node_modules/
+.env
+.github
+.idea
+/packages/frontend/build/
+# Local Netlify folder
+.netlify
